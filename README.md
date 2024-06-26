@@ -8,9 +8,10 @@ La programación orientada a objetos (POO) es un paradigma de programación que 
 
 Como ya hemos visto en clase, a medida que vamos avanzando en el desarrollo de aplicaciones, nos encontramos con que la base de código se va haciendo cada vez más grande y compleja.
 
-A mayor complejidad, mayor dificultad para mantener y mejorar la aplicación. A mayor cantidad de programadores, mayor dificultad para que todos los miembros del equipo entiendan el código.
+1. A mayor complejidad, mayor dificultad para mantener y mejorar la aplicación. 
+1. A mayor cantidad de programadores, mayor dificultad para que todos los miembros del equipo entiendan el código.
 
-Una forma de solucionar estos problemas es con los paradigmas de programación. Un paradigma de programación es un estilo de programación que se basa en un conjunto de principios, reglas y normas que se deben seguir para realizar una tarea de programación. Los programadores acuerdan seguir estas reglas para que el código sea más legible, mantenible y escalable.
+Una forma de solucionar estos problemas es aplicando paradigmas de programación. Un paradigma de programación es un estilo de programación que se basa en un conjunto de principios, reglas y normas que se deben seguir para realizar una tarea de programación. Los programadores acuerdan seguir estas reglas para que el código sea más legible, mantenible y escalable.
 
 ### ¿Qué es la programación orientada a objetos?
 
@@ -47,19 +48,112 @@ Y los siguientes métodos:
 - `guardar()` (guarda los datos del alumno en la base de datos)
 - `eliminar()` (elimina los datos del alumno de la base de datos)
 
-De esta forma, sabiendo que todos los alumnos de nuestro sistema tendrán estas propiedades y métodos, podemos tratar a todos los alumnos de la misma forma, sin importar si son de primero, segundo, tercero, etc. A esto le llamamos **abstracción**. Agrupamos propiedades y comportamientos en una clase, para que todas las instancias de la misma se comporten de la misma forma.
+De esta forma, sabiendo que todos los alumnos de nuestro sistema tendrán estas propiedades y métodos, podemos tratar a todos los alumnos de la misma forma, sin importar si son de primero, segundo, tercero, etc. A esto le llamamos **abstracción**. Agrupamos propiedades y comportamientos en una clase, para que todas las instancias se comporten de la misma forma.
 
 ### Principios de la POO
 
-**Abstracción**: La abstracción es el proceso de simplificar las cosas. En programación orientada a objetos, la abstracción consiste en simplificar los objetos del mundo real en clases. Por ejemplo, un coche puede tener propiedades como `marca`, `modelo`, `color`, `velocidad`, etc. Las propiedades y comportamientos reflejarán la realidad, pero sólo aquella información que sea relevante para el sistema. 
+**Abstracción**: 
 
-**Encapsulación**: La encapsulación es el proceso de ocultar los detalles de implementación de un objeto y mostrar sólo las características que sean necesarias para interactuar con él. En programación orientada a objetos, la encapsulación consiste en agrupar los datos y los métodos que operan sobre esos datos en una misma unidad, llamada clase. De esta forma, los datos de la clase sólo pueden ser accedidos y modificados a través de los métodos de la misma.
+La abstracción es el proceso de simplificar las cosas. En programación orientada a objetos, la abstracción consiste en simplificar los objetos del mundo real en clases. Por ejemplo, un coche puede tener propiedades como `marca`, `modelo`, `color`, `velocidad`, etc. Las propiedades y comportamientos reflejarán la realidad, pero sólo aquella información que sea relevante para el sistema. 
 
-**Herencia**: La herencia es un mecanismo que permite que una clase herede las propiedades y los métodos de otra clase. La clase que hereda se llama subclase, y la clase de la que hereda se llama superclase. La herencia permite reutilizar el código y extender la funcionalidad de una clase sin tener que modificarla.
+**Encapsulación**: 
 
-**Polimorfismo**: El polimorfismo es un mecanismo que permite que un objeto pueda ser tratado como si fuera de otro tipo. En programación orientada a objetos, el polimorfismo consiste en que un objeto de una subclase pueda ser tratado como si fuera de una superclase. Esto permite que un objeto pueda ser utilizado de diferentes formas, dependiendo del contexto en el que se encuentre.
+La encapsulación es el proceso de ocultar los detalles de implementación de un objeto y mostrar sólo las características que sean necesarias para interactuar con él. En programación orientada a objetos, la encapsulación consiste en agrupar los datos y los métodos que operan sobre esos datos en una misma unidad, llamada clase. De esta forma, los datos de la clase sólo pueden ser accedidos y modificados a través de los métodos de la misma.
+
+**Herencia**: 
+
+La herencia es un mecanismo que permite que una clase herede las propiedades y los métodos de otra clase. La clase que hereda se llama subclase, y la clase de la que hereda se llama superclase. La herencia permite reutilizar el código y extender la funcionalidad de una clase sin tener que modificarla.
+
+**Polimorfismo**: 
+
+El polimorfismo es un mecanismo que permite que un objeto pueda ser tratado como si fuera de otro tipo. En programación orientada a objetos, el polimorfismo consiste en que un objeto de una subclase pueda ser tratado como si fuera de una superclase. Esto permite que un objeto pueda ser utilizado de diferentes formas, dependiendo del contexto en el que se encuentre.
+
+### Método `constructor()`
+
+El método `constructor()` es un método especial que se llama automáticamente cuando se crea un objeto a partir de una clase usando la palabra `new`. El método `constructor()` se utiliza para inicializar las propiedades de un objeto cuando se crea una instancia de la clase.
+
+```javascript
+// Definición de la clase Alumno
+class Alumno {
+  constructor(nombre, apellido, edad, curso) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = edad;
+    this.curso = curso;
+  }
+}
+
+// Creación de una instancia/objeto de la clase Alumno
+let alumno = new Alumno('Juan', 'Pérez', 20, 'Primero'); // llama a `constructor()`
+```
+
+### Palabra clave `this`
+
+La palabra clave `this` se refiere al objeto actual en el que se está trabajando. En el contexto de una clase, `this` se refiere a la instancia de la clase que se está creando.
+
+### Métodos de instancia
+
+Los métodos de instancia son métodos que se definen en la clase y que se pueden llamar en las instancias de la clase. Los métodos de instancia se definen dentro de la clase, pero fuera del método `constructor()`.
+
+```javascript
+// Definición de la clase Alumno
+class Alumno {
+  constructor(nombre, apellido, edad, curso) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = edad;
+    this.curso = curso;
+  }
+
+  anoNacimiento() {
+    return new Date().getFullYear() - this.edad;
+  }
+
+  nombreCompleto() {
+    return `${this.nombre} ${this.apellido}`;
+  }
+
+  esMayorEdad() {
+    return this.edad >= 18;
+  }
+}
+
+// Creación de una instancia/objeto de la clase Alumno
+let alumno = new Alumno('Juan', 'Pérez', 20, 'Primero');
+
+console.log(alumno.anoNacimiento()); // 2001
+console.log(alumno.nombreCompleto()); // Juan Pérez
+console.log(alumno.esMayorEdad()); // true
+```
+
+### Métodos estáticos
+
+Los métodos estáticos son métodos que se definen en la clase y que se pueden llamar en la clase misma, sin necesidad de crear una instancia de la clase. Los métodos estáticos se definen con la palabra clave `static`.
+
+```javascript
+// Definición de la clase Alumno
+class Alumno {
+  static buscarPorNombre(nombre) {
+    // Buscar un alumno por nombre en la base de datos
+    // y lo devuelve como un objeto Alumno
+  }
+
+  static todos() {
+    // Devuelve todos los alumnos de la base de datos
+    // como un array de objetos Alumno
+  }
+}
+
+// Llamada a un método estático de la clase Alumno
+let alumno = Alumno.buscarPorNombre('Juan'); // no hacemos `new`
+```
 
 ### Ejemplo de programación orientada a objetos en JavaScript
+
+```html
+  <!-- Usamos el tag script de la misma forma que antes -->
+  <script src="scripts/alumno.js" defer></script>
+```
 
 ```javascript
 // Definimos la clase Alumno
@@ -130,3 +224,10 @@ class Alumno {
   }
 }
 ```
+## Ejercicios
+
+1. Crear una clase Auto con al menos 4 propiedades comunes a todos los autos, y al menos un método que utiliza las propiedades de la clase. 
+
+2. Crear una clase Casa con al menos 4 propiedades comunes a todas las casas, y al menos un método que utiliza las propiedades de la clase.
+
+3. Crear una clase Empleado con al menos 4 propiedades comunes a todos los empleados, y al menos un método que utiliza las propiedades de la clase.

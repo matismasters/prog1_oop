@@ -179,6 +179,8 @@ class Alumno {
   }
 
   validar() {
+    this.errores = [];
+
     if (!this.nombre || this.nombre === '') {
       this.errores.push('El nombre es obligatorio');
     }
@@ -231,3 +233,9 @@ class Alumno {
 2. Crear una clase Casa con al menos 4 propiedades comunes a todas las casas, y al menos un método que utiliza las propiedades de la clase.
 
 3. Crear una clase Empleado con al menos 4 propiedades comunes a todos los empleados, y al menos un método que utiliza las propiedades de la clase.
+
+4. Crear una clase Lista con al menos 4 propiedades comunes a todas las listas, y al menos un método que utiliza las propiedades de la clase. Agregar una quinta propiedad de nombre "tareas" que sea un array de objetos con las propiedades "nombre" y "completada". Agregar métodos de instancia para agregar, eliminar, listar y completar tareas.
+
+5. Crear una clase Equipo con al menos 4 propiedades comunes a todos los equipos, y al menos un método que utiliza las propiedades de la clase. Agregar una quinta propiedad de nombre "jugadores" que sea un array de objetos con las propiedades "nombre" y "posicion". Agregar métodos de instancia para agregar, eliminar, listar y buscar jugadores.
+
+6. Crear una clase Revista con al menos 4 propiedades comunes a todas las revistas, y al menos un método que utiliza las propiedades de la clase. Agregar una quinta propiedad de nombre "articulos" que sea un array de objetos con las propiedades "titulo" y "autor". Agregar métodos de instancia para agregar, eliminar, listar y buscar artículos.
